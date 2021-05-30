@@ -1,0 +1,35 @@
+html,
+body {
+  height: 100%;
+}
+
+#users .accounts::-webkit-scrollbar,
+#chat .messages::-webkit-scrollbar {
+  width: 10px;
+}
+
+#users .accounts::-webkit-scrollbar-track,
+#chat .messages::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+#users .accounts::-webkit-scrollbar-thumb,
+#chat .messages::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+#users .accounts::-webkit-scrollbar-thumb:hover,
+#chat .message::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+#chat,
+#users {
+  height: 100%;
+  min-height: 300px;
+}
+
+#users .accounts,
+#chat .messages {
+  overflow-y: scroll;
+}
