@@ -30,23 +30,13 @@ app.get(process.env.BASE_URL, (request, response) => {
 
 let messages = []
 
-let users = []
 
 io.on('connection', socket => {
-  console.log('Socket connected')
-
-  socket.on('connected', function (data) {
-    users[socket.id] = data.user
-  })
-
-  socket.on('disconnect', function () {
-    console.log(`Socket with user ${users[socket.id]} disconnected`)
-    delete users[socket.id]
-  })
+  console.log(`Socket conectado: ${socket.id}`)
 
   socket.emit('previousMessages', messages)
 
-  socket.on('sendMessage', data => {
+  socket.on('send', data => {
     messages.push(data)
     socket.broadcast.emit('receivedMessage', data)
   })
