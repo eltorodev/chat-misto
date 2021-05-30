@@ -2,6 +2,8 @@ const express = require('express')
 const path = require('path')
 const dotenv = require('dotenv')
 
+dotenv.config()
+
 const app = express()
 
 const server = require('http').createServer(app)
@@ -32,11 +34,11 @@ let users = []
 io.on('connection', socket => {
   console.log('Socket connected')
 
-  socket.on('connected', function(data) {
+  socket.on('connected', function (data) {
     users[socket.id] = data.user
   })
 
-  socket.on('disconnect', function() {
+  socket.on('disconnect', function () {
     console.log(`Socket with user ${users[socket.id]} disconnected`)
     delete users[socket.id]
   })
