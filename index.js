@@ -12,6 +12,8 @@ const io = require('socket.io')(server, {
   }
 })
 
+app.use(cors())
+
 app.use(express.static(path.join(__dirname, 'public')))
 app.set('views', path.join(__dirname, 'public'))
 app.engine('html', require('ejs').renderFile)
