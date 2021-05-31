@@ -39,6 +39,7 @@ io.on('connection', socket => {
   socket.on('send', data => {
     messages.push(data)
     socket.broadcast.emit('receivedMessage', data)
+    console.log(data)
   })
 })
 
